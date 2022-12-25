@@ -5,7 +5,8 @@ class VehicleController {
     try {
       let vehicles = await vehicle.findAll();
 
-      res.json(vehicles)
+      res.render("vehicle/index.ejs", { vehicles });
+      // res.json(vehicles);
     } catch (err) {
       res.json(err);
     }
@@ -14,12 +15,13 @@ class VehicleController {
 
   static async create(req, res) {
     try {
-      const { name, brand, price } = req.body;
+      const { name, brand, price, image } = req.body;
 
       let result = await vehicle.create({
         name,
         brand,
         price,
+        image,
       });
 
       res.json(result);
@@ -44,18 +46,30 @@ class VehicleController {
     }
   }
 
-  static async editPage(req, res) {}
+  static async editPage(req, res) {
+    try{
+      {
+        const id = +req.params.id
+        let result = await vehicle.findByPk(id)
+
+        res.json(result)
+      }
+    }catch(err){
+      res.json(err)
+    }
+  }
 
   static async edit(req, res) {
     try {
       const id = +req.params.id;
-      const { name, brand, price } = req.body;
+      const { name, brand, price, image } = req.body;
 
       let result = await vehicle.update(
         {
           name,
           brand,
           price,
+          image,
         },
         {
           where: { id },

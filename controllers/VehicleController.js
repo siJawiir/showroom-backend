@@ -5,7 +5,7 @@ class VehicleController {
     try {
       let vehicles = await vehicle.findAll();
 
-      res.json(vehicles);
+      res.json(vehicles)
     } catch (err) {
       res.json(err);
     }

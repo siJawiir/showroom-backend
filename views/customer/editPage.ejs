@@ -119,8 +119,8 @@
       <div class="card p-4">
         <div class="row">
           <div class="col">
-            <h5 class="text-center">Input Vehicles</h5>
-            <form method="post" action="/vehicles/edit/<%=result.id%>">
+            <h5 class="text-center">Input Customer</h5>
+            <form method="post" action="/customers/edit/<%=result.id%>">
               <div class="form-group mb-4">
                 <label for="formGroupExampleInput">Name</label>
                 <input
@@ -129,29 +129,7 @@
                   id="formGroupExampleInput"
                   name="name"
                   value="<%=result.name%>"
-                  placeholder="Input Vehicles"
-                />
-              </div>
-              <div class="form-group mb-4">
-                <label for="formGroupExampleInput2">Brand</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="formGroupExampleInput2"
-                  name="brand"
-                  value="<%=result.brand%>"
-                  placeholder="Input the Brand"
-                />
-              </div>
-              <div class="form-group mb-4">
-                <label for="formGroupExampleInput2">Price</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="formGroupExampleInput3"
-                  name="price"
-                  value="<%=result.price%>"
-                  placeholder="Input the Price"
+                  placeholder="Input Customer"
                 />
               </div>
               <div class="form-group mb-4">
@@ -160,8 +138,8 @@
                   type="text"
                   class="form-control"
                   id="exampleFormControlFile1"
-                  name="image"
-                  value="<%=result.image%>"
+                  name="address"
+                  value="<%=result.address%>"
                 />
               </div>
               <div class="mt-3">

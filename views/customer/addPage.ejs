@@ -119,49 +119,26 @@
       <div class="card p-4">
         <div class="row">
           <div class="col">
-            <h5 class="text-center">Input Vehicles</h5>
-            <form method="post" action="/vehicles/edit/<%=result.id%>">
+            <h5 class="text-center">Input Customer</h5>
+            <form method="post" action="/customers/create">
               <div class="form-group mb-4">
                 <label for="formGroupExampleInput">Name</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="formGroupExampleInput"
+                  id="formGroupExampleInput2"
                   name="name"
-                  value="<%=result.name%>"
-                  placeholder="Input Vehicles"
+                  placeholder="Input the Name"
                 />
               </div>
               <div class="form-group mb-4">
-                <label for="formGroupExampleInput2">Brand</label>
+                <label for="formGroupExampleInput2">Address</label>
                 <input
                   type="text"
-                  class="form-control"
-                  id="formGroupExampleInput2"
-                  name="brand"
-                  value="<%=result.brand%>"
-                  placeholder="Input the Brand"
-                />
-              </div>
-              <div class="form-group mb-4">
-                <label for="formGroupExampleInput2">Price</label>
-                <input
-                  type="number"
                   class="form-control"
                   id="formGroupExampleInput3"
-                  name="price"
-                  value="<%=result.price%>"
-                  placeholder="Input the Price"
-                />
-              </div>
-              <div class="form-group mb-4">
-                <label for="formGroupExampleInput2">Image</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleFormControlFile1"
-                  name="image"
-                  value="<%=result.image%>"
+                  name="address"
+                  placeholder="Input the Address"
                 />
               </div>
               <div class="mt-3">

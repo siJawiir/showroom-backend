@@ -3,6 +3,10 @@ const vehicleCustomerRoute = Router();
 const { VCController } = require("../controllers");
 
 vehicleCustomerRoute.get("/", VCController.getVC);
-vehicleCustomerRoute.post("/create", VCController.create);
+vehicleCustomerRoute.get("/create", VCController.create);
+vehicleCustomerRoute.post("/create", VCController.createPage);
+vehicleCustomerRoute.get("/delete/:id", VCController.delete)
+vehicleCustomerRoute.get("/edit/:id", VCController.editPage)
+vehicleCustomerRoute.post("/edit/:id", VCController.edit)
 
 module.exports = vehicleCustomerRoute;

@@ -11,8 +11,8 @@ const vehicleRoutes = require('./vehicle')
 const customerRoutes = require('./customer')
 const vehicleCustomerRoutes = require('./vehicleCustomer')
 
-route.use('/vehicle', vehicleRoutes)
-route.use('/customer', customerRoutes)
-route.use('/vehicleCustomer', vehicleCustomerRoutes)
+route.use('/vehicles', vehicleRoutes)
+route.use('/customers', customerRoutes)
+route.use('/vehicleCustomers', vehicleCustomerRoutes)
 
 module.exports = route

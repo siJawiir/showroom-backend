@@ -13,7 +13,7 @@
     />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-secondary">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">Showroom Jackie's</a>
         <button
@@ -46,7 +46,11 @@
                 Other
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Add Vehicles</a></li>
+                <li>
+                  <a class="dropdown-item" href="/vehicles/create"
+                    >Add Vehicles</a
+                  >
+                </li>
                 <li><a class="dropdown-item" href="#">Add Customers</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
@@ -127,25 +131,37 @@
       eveniet?
     </h3>
     <div class="container-lg mt-5">
-      <div class="row">
-        <% vehicles.forEach(vehicle => { %>
-        <div class="col-4 mb-5">
-          <div class="card" style="width: 18rem">
-            <img
-              src="<%= vehicle.image %>"
-              class="card-img-top"
-              alt="..."
-              style="height: 170px"
-            />
-            <div class="card-body">
-              <h5 class="card-title"><%= vehicle.name %></h5>
-              <p class="card-text text-danger">Rp. <%= vehicle.price %></p>
-              <a href="#" class="btn btn-light btn-outline-success">Buy</a>
-              <a href="/vehicles/edit/<%= vehicle.id %>" class="btn btn-outline-danger">Edit</a>
+      <div class="card p-5 bg-light rounded">
+        <div class="row">
+          <% vehicles.forEach(vehicle => { %>
+          <div class="col-4 mb-5">
+            <div class="card bg-light" style="width: 18rem">
+              <img
+                src="<%= vehicle.image %>"
+                class="card-img-top"
+                alt="..."
+                style="height: 170px"
+              />
+              <div class="card-body">
+                <h5 class="card-title"><%= vehicle.name %></h5>
+                <p class="card-text">Good Quality !</p>
+                <h6 class="text-success">Rp. <%= vehicle.price%></h6>
+                <a href="#" class="btn btn-light btn-outline-success">Buy</a>
+                <a
+                  href="/vehicles/edit/<%= vehicle.id %>"
+                  class="btn btn-outline-info"
+                  >Edit</a
+                >
+                <a
+                  href="/vehicles/delete/<%=vehicle.id %>"
+                  class="btn btn-light btn-outline-danger"
+                  >Delete</a
+                >
+              </div>
             </div>
           </div>
+          <% }) %>
         </div>
-        <% }) %>
       </div>
     </div>
     <script

@@ -3,7 +3,9 @@ const { vehicle } = require("../models");
 class VehicleController {
   static async getVehicles(req, res) {
     try {
-      let vehicles = await vehicle.findAll();
+      let vehicles = await vehicle.findAll({
+        order:[["name","asc"]]
+      });
 
       res.render("vehicle/index.ejs", { vehicles });
       // res.json(vehicles);
@@ -11,7 +13,9 @@ class VehicleController {
       res.json(err);
     }
   }
-  static createPage(req, res) {}
+  static createPage(req, res) {
+    res.render("vehicle/addPage.ejs");
+  }
 
   static async create(req, res) {
     try {
@@ -24,7 +28,7 @@ class VehicleController {
         image,
       });
 
-      res.json(result);
+      res.redirect("/vehicles");
     } catch (err) {
       res.json(err);
     }
@@ -38,24 +42,25 @@ class VehicleController {
         where: { id },
       });
 
-      result === 1
-        ? res.json({ message: `ID ${id} has been deleted` })
-        : res.json({ message: `ID ${id} cannot be deleted` });
+      // result === 1
+      //   ? res.json({ message: `ID ${id} has been deleted` })
+      //   : res.json({ message: `ID ${id} cannot be deleted` });
+      res.redirect("/vehicles");
     } catch (err) {
       res.json(err);
     }
   }
 
   static async editPage(req, res) {
-    try{
+    try {
       {
-        const id = +req.params.id
-        let result = await vehicle.findByPk(id)
+        const id = +req.params.id;
+        let result = await vehicle.findByPk(id);
 
-        res.json(result)
+        res.render("vehicle/editPage.ejs", { result });
       }
-    }catch(err){
-      res.json(err)
+    } catch (err) {
+      res.json(err);
     }
   }
 
@@ -75,13 +80,14 @@ class VehicleController {
           where: { id },
         }
       );
-      result[0] === 1
-        ? res.json({
-            message: `ID ${id} has been updated`,
-          })
-        : res.json({
-            message: `ID ${id} cannot updated !`,
-          });
+      // result[0] === 1
+      //   ? res.json({
+      //       message: `ID ${id} has been updated`,
+      //     })
+      //   : res.json({
+      //       message: `ID ${id} cannot updated !`,
+      //     });
+      res.redirect("/vehicles")
     } catch (err) {
       res.json(err);
     }
